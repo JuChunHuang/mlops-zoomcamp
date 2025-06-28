@@ -96,6 +96,8 @@ There were a massive update for Evidently since 0.7.0 version.
 
 To check working example with Evidently >= 0.7.0 go to `post-evidently-0.7` folder.
 
+Run `evidently ui` to go to the localhost.
+
 ## Prerequisites
 
 You need following tools installed:
@@ -114,7 +116,7 @@ Note: all actions expected to be executed in repo folder.
 
 ### Starting services
 
-To start all required services, execute:
+To start all required services, execute (add `--build` if never built before):
 ```bash
 docker-compose up
 ```
