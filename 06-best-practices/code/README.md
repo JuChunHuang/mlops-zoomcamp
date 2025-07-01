@@ -32,6 +32,8 @@ docker run -it --rm \
 
 ### Specifying endpoint URL
 
+`--endpoint-url` specify the localhost, without it will connect to the endpoint in S3 instead.
+
 ```bash
 aws --endpoint-url=http://localhost:4566 \
     kinesis list-streams
@@ -64,6 +66,13 @@ env variables to the `docker-compose.yaml` file:
 ```
 
 ### Make
+
+`Makefile` defines set of tasks to be executed. Below is the syntax of a typical rule:
+
+```
+target: prerequisites
+<tab> recipe
+```
 
 Without make:
 
@@ -171,3 +180,17 @@ w/ Terraform
 * Unfortunately, the `RUN_ID` (if set via the `ENV` or `ARG` in `Dockerfile`), disappears during lambda invocation.
 We'll set it via `aws lambda update-function-configuration` CLI command (refer to `deploy_manual.sh` or `.github/workflows/cd-deploy.yml`)
     
+In bash, `set -e` exit immediately if a command exits with a non-zero status. Therefore if you run
+```bash
+$ ./run.sh
+$ echo $?
+```
+It will return a non-zero error code.
+
+To use Pylint in VSCode, search for **Python: Select Linter** and select `pylint`. Then search for **Python: Run Linting** to apply Pylint in the scripts. You can create a `.pylintrc` config file or a `pyproject.toml` to disable different kinds of warnings globally.
+```bash
+[MESSAGES CONTROL]
+
+disable=missing-function-docstring,
+        missing-final-newline
+```
