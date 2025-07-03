@@ -1,0 +1,3 @@
+[submodule "biopay"]
+	path = biopay
+	url = https://github.com/JuChunHuang/biopay.git
